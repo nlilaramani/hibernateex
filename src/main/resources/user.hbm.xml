@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.itexps.web.model.User" table="USERS" catalog="app">
+      <id name="id" column="Id" type="java.lang.Integer" >
+            <generator class="increment"/>
+        </id>
+        <property name="fname" type="java.lang.String">
+            <column name="fname" length="45" />
+        </property>
+
+        <property name="lname" type="java.lang.String">
+            <column name="lname" length="45" />
+        </property>
+
+  </class>
+</hibernate-mapping>
