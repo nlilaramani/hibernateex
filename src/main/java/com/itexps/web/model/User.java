@@ -15,8 +15,6 @@ import javax.persistence.Table;
  *
  * @author itexps
  */
-@Entity
-@Table(name="USERS")
 public class User {
     private String lname;
     private String fname;
@@ -24,8 +22,8 @@ public class User {
     private String password;
     private String gender;
     private String email;
-   @Id @GeneratedValue
-   @Column(name = "id")
+/*   @Id @GeneratedValue
+   @Column(name = "id")*/
     private int id;
 
     public String getLname() {
@@ -84,6 +82,8 @@ public class User {
         this.id = id;
     }
     
-    
+    public String toString(){
+        return "Id:"+id+",Name:"+fname+" "+lname+", Username:"+username+", "+"Email:"+email;
+    }
     
 }
