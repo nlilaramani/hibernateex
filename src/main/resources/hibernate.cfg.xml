@@ -3,11 +3,12 @@
 
 <hibernate-configuration>
   <session-factory>
-    <property name="hibernate.dialect">org.hibernate.dialect.DerbyDialect</property>
-    <property name="hibernate.connection.driver_class">org.apache.derby.jdbc.ClientDriver</property>
-    <property name="hibernate.connection.url">jdbc:derby://localhost:1527/sample</property>
-    <property name="hibernate.connection.username">app</property>
-    <property name="hibernate.connection.password">app</property>
+    <!--<property name="hibernate.dialect">org.hibernate.dialect.DerbyDialect</property>-->
+    <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+    <property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;databaseName=ecomm</property>
+    <property name="hibernate.connection.username">sa</property>
+    <property name="hibernate.connection.password">Itexps@123</property>
+    <property name="hibernate.show_sql">true</property>
     <mapping resource="user.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
