@@ -15,26 +15,22 @@ import org.hibernate.Session;
  */
 public class UserService {
     public static User getUserById(int id) {
-        
         User user;
         try (Session session = HibernateUtils.getSessionFactory().openSession()) {
             user = session.get(User.class, id);
         }
-        
         return user;
     }    
     
     public static void saveUser(User user) {
-        
-        
         try (Session session = HibernateUtils.getSessionFactory().openSession()) {
            session.beginTransaction();
             session.save(user);
             session.getTransaction().commit();
         }
     }
-     public static List<User> getUsers() {
-        
+
+    public static List<User> getUsers() {
         List<User> users;
         try (Session session = HibernateUtils.getSessionFactory().openSession()) {
             users = session.createQuery("from User").list();
@@ -43,7 +39,6 @@ public class UserService {
     }   
      
      public static void deleteUser(int id) {
-        
         List<User> users;
         try (Session session = HibernateUtils.getSessionFactory().openSession()) {
             session.beginTransaction();
@@ -55,13 +50,24 @@ public class UserService {
     }   
     
      public static void updateUser(User user) {
-        
-        
         try (Session session = HibernateUtils.getSessionFactory().openSession()) {
            session.beginTransaction();
            session.update(user);
-        //   session.save(user);
            session.getTransaction().commit();
         }
+    }
+     
+    public static List findUserEmails(){
+        try (Session session = HibernateUtils.getSessionFactory().openSession()) {
+           return session.createSQLQuery("select username,email from dbo.USERS").list();
+        }
+        
+    }
+    
+    public static List findByUsername(){
+        try (Session session = HibernateUtils.getSessionFactory().openSession()) {
+           return session.getNamedQuery("usernameQuery").setString("uname", "robert").list();
+        }
+        
     }
 }
