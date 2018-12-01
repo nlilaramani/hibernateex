@@ -23,4 +23,10 @@
             <column name="email" length="255" />
         </property>
   </class>
+  <sql-query name="usernameQuery">
+    <return class="com.itexps.web.model.User"/>
+    SELECT *
+    FROM dbo.USERS
+    WHERE username LIKE :uname
+    </sql-query>
 </hibernate-mapping>
